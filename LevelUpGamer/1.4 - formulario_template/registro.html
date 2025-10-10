@@ -32,7 +32,12 @@
       <h6 class="text-center mb-5 text-light"> ¡Advertencia, necesitas ser mayor de 18 años para registrarte!</h6>
       <form id="loginForm" class="needs-validation" novalidate>
         <div id="regAlert" class="alert d-none" role="alert"></div>
-            <form id="formRegistro" novalidate>
+          <form id="formRegistro" novalidate>
+            <div class="mb-3">
+              <label for="nomcomlog" class="form-label">Nombre Completo</label>
+              <input type="text" id="nomcomlog" class="form-control" required>
+              <div class="invalid-feedback">Sólo letras y espacios, máximo 50 caracteres.</div>
+            </div>
         <div class="mb-3">
           <label for="nomcomlog" class="form-label">Nombre Completo</label>
           <input type="text" id="nomcomlog" class="form-control" required>
