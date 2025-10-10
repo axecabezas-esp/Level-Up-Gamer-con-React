@@ -31,23 +31,35 @@
       <h2 class="text-center mb-4" style="color: #39FF14;">Crear una cuenta</h2>
       <h6 class="text-center mb-5 text-light"> ¡Advertencia, necesitas ser mayor de 18 años para registrarte!</h6>
       <form id="loginForm" class="needs-validation" novalidate>
+        <div id="regAlert" class="alert d-none" role="alert"></div>
+            <form id="formRegistro" novalidate>
         <div class="mb-3">
           <label for="nomcomlog" class="form-label">Nombre Completo</label>
-          <input type="text" id="nomcomlog" class="form-control is-invalid" required>
+          <input type="text" id="nomcomlog" class="form-control" required>
           <div class="invalid-feedback">Sólo letras y espacios, máximo 50 caracteres.</div>
         </div>
         <div class="mb-3">
           <label for="correolog" class="form-label">Correo</label>
           <input type="email" id="correolog" class="form-control" required>
+          <div class="invalid-feedback">Debe ser un correo válido @duocuc.cl y no estar registrado.</div>
         </div>
         <div class="mb-3">
           <label for="passwordlog" class="form-label">Contraseña</label>
           <input type="password" id="passwordlog" class="form-control" minlength="6" required>
+          <div class="form-text text-info">Mín. 8 carácteres, con mayúscula, minúscula, número y símbolo.</div>
+          <div class="invalid-feedback">La contraseña no cumple los requisitos.</div>
         </div>
         <div class="mb-3">
           <label for="confirmlog" class="form-label">Confirmar contraseña</label>
           <input type="password" id="confirmlog" class="form-control" minlength="6" required>
           <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="comuna">Comuna</label>
+          <select id="comuna" class="form-select" required>
+            <option value="">Selecciona tu comuna…</option>
+          </select>
+          <div class="invalid-feedback">Selecciona una comuna.</div>
         </div>
         <div class="mb-3">
           <label for="fecha" class="form-label">Fecha de nacimiento</label>
@@ -64,6 +76,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="assets/app.js"></script>
 </body>
 </html>

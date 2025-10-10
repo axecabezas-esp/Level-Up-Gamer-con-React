@@ -10,7 +10,7 @@ const soloLetrasEspacios = (str) => /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/.test(
 const isDuocEmail = (str) => /^[A-Za-z0-9-_.]+@duocuc.cl$/.test(str);
 const isProfesorduocEmail = (str) => /^[A-Za-z0-9-_.]+@profesor.duoc.cl$/.test(str);
 const isUserEmail = (str) => /^[A-Za-z0-9-_.]+@gmail.com$/.test(str);
-const strongPassword = (pwd) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{4,10}$/.test(pwd);
+const strongPassword = (pwd) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,10}$/.test(pwd);
 
 if (nombre){
 
@@ -75,3 +75,22 @@ if (fecha){
     
     fecha.setAttribute('max',fechaMax);
 }
+
+const comunas = {
+    "PA" : "Puente Alto",
+    "LF" : "La Florida",
+    "LP" : "La Pintana",
+    "ST" : "Santiago"
+}
+// creamos funcion para lenar el select de comunas
+function LlenarComunas(){
+    for (let codigo in comunas){
+        const opcion = document.createElement("option");
+        opcion.value = codigo.valueOf(); 
+        opcion.textContent = comunas[codigo]
+        comuna.appendChild(opcion)
+    }
+    
+};
+// Llamamos la funcion
+LlenarComunas();
