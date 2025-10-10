@@ -45,96 +45,107 @@ export const Home = () => {
       <h2 className="text-center text-info mb-4">Nuestros Productos</h2>
       <div className="row g-4 justify-content-center">
         <div className="col-md-4">
+          
           <a href="producto.html" className="text-decoration-none">
             <div className="card p-4 h-100 text-center">
-              <h3 className="text-verde">PlayStation 5</h3>
+              <img src="..\public\img\ps5.png" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">PlayStation 5</h3>
               <p className="text-secondary">Consola de última generación con SSD ultrarrápido.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
           <a href="producto2.html" className="text-decoration-none">
             <div className="card p-4 h-100 text-center">
-              <h3 className="text-verde">PC Gamer ASUS ROG Strix</h3>
+              <img src="..\public\img\PC_Gamer_ASUS_ROG_Strix.png" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">PC Gamer ASUS ROG Strix</h3>
               <p className="text-secondary">PC de última generación.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
           <a href="producto3.html" className="text-decoration-none">
             <div className="card p-4 h-100 text-center">
-              <h3 className="text-verde">Silla Gamer Secretlab Titan</h3>
+              <img src="..\public\img\Silla Gamer Secretlab Titan.png" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Silla Gamer Secretlab Titan</h3>
               <p className="text-secondary">Comodidad de última generación.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
-          <a href=""  className="text-decoration-none">
-            <div className="card p-4 h-100 text-center " >
-              <h3 className="text-verde">Catan</h3>
+          <a href="#"  className="text-decoration-none">
+            <div className="card p-4 h-100 text-center">
+              <img src="..\public\img\Catan.webp" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Catan</h3>
               <p className="text-secondary">Un clásico juego de estrategia donde los jugadores compiten por colonizar y 
                                           expandirse en la isla de Catan.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
-          <a href="#" className="text-decoration-none" >
-            <div className="card p-4 h-100 text-center" >
-              <h3 className="text-verde">Carcassonne</h3>
+          <a href="#" className="text-decoration-none">
+            <div className="card p-4 h-100 text-center">
+              <img src="..\public\img\Carcassonne.jpg" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Carcassonne</h3>
               <p className="text-secondary">Un juego de colocación de fichas donde los jugadores construyen el paisaje 
                                         alrededor de la fortaleza medieval de Carcassonne.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
           <a href="#" className="text-decoration-none">
-            <div className="card p-4 h-100 text-center" >
-              <h3 className="text-verde">Controlador Inalámbrico Xbox Series X</h3>
+            <div className="card p-4 h-100 text-center">
+              <img src="..\public\img\control-xbox-series-inalambrico.jpg" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Controlador Inalámbrico Xbox Series X</h3>
               <p className="text-secondary"> Ofrece una experiencia de juego cómoda con 
                                         botones mapeables y una respuesta táctil mejorada.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
           <a href="#" className="text-decoration-none">
-            <div className="card p-4 h-100 text-center" >
-              <h3 className="text-verde">Auriculares Gamer HyperX Cloud II</h3>
+            <div className="card p-4 h-100 text-center">
+              <img src="..\public\img\auriculares_gamer_HyperX.webp" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Auriculares Gamer HyperX Cloud II</h3>
               <p className="text-secondary">Proporcionan un sonido envolvente de calidad con un 
                                         micrófono desmontable y almohadillas.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
           <a href="#" className="text-decoration-none">
-            <div className="card p-4 h-100 text-center" >
-              <h3 className="text-verde">Mouse Gamer Logitech G502 HERO</h3>
+            <div className="card p-4 h-100 text-center">
+              <img src="..\public\img\mouse_gamer_logitech.webp" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Mouse Gamer Logitech G502 HERO</h3>
               <p className="text-secondary">Consola de última generación con SSD ultrarrápido.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
           <a href="#" className="text-decoration-none">
-            <div className="card p-4 h-100 text-center" >
-              <h3 className="text-verde">Polera Gamer Personalizada 'Level-Up'</h3>
+            <div className="card p-4 h-100 text-center">
+              <img src="..\public\img\polera_level_up.webp" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Polera Gamer Personalizada 'Level-Up'</h3>
               <p className="text-secondary">Una camiseta cómoda y estilizada, con la posibilidad de personalizarla con tu gamer tag o diseño favorito. </p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
         <div className="col-md-4">
           <a href="#" className="text-decoration-none">
-            <div className="card p-4 h-100 text-center" >
-              <h3 className="text-verde">Mousepad Razer Goliathus Extended Chroma</h3>
+            <div className="card p-4 h-100 text-center">
+              <img src="..\public\img\mousepad_razer_goliathus.jpg" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+              <h3 className="text-verde my-4">Mousepad Razer Goliathus Extended Chroma</h3>
               <p className="text-secondary">Ofrece un área de juego amplia con iluminación RGB personalizable.</p>
-              <button className="btn btn-success">Ver detalle</button>
+              <button className="btn btn-success mt-auto">Ver detalle</button>
             </div>
           </a>
         </div>
