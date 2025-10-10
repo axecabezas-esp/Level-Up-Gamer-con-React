@@ -4,6 +4,7 @@ const correolog = document.getElementById('correolog');
 const passwordlog = document.getElementById('passwordlog')
 const confirmlog = document.getElementById('confirmlog')
 const fecha = document.getElementById('fecha')
+const run = document.getElementById('runlog')
 
 
 const soloLetrasEspacios = (str) => /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/.test(str);
@@ -11,6 +12,7 @@ const isDuocEmail = (str) => /^[A-Za-z0-9-_.]+@duocuc.cl$/.test(str);
 const isProfesorduocEmail = (str) => /^[A-Za-z0-9-_.]+@profesor.duoc.cl$/.test(str);
 const isUserEmail = (str) => /^[A-Za-z0-9-_.]+@gmail.com$/.test(str);
 const strongPassword = (pwd) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,10}$/.test(pwd);
+const soloNuumerosSinVerificador = (str) => /^[0-9].{7}$/.test(str);
 
 if (nombre){
 
@@ -76,6 +78,7 @@ if (fecha){
     fecha.setAttribute('max',fechaMax);
 }
 
+
 const comunas = {
     "PA" : "Puente Alto",
     "LF" : "La Florida",
@@ -94,3 +97,15 @@ function LlenarComunas(){
 };
 // Llamamos la funcion
 LlenarComunas();
+
+if(run){
+    run.addEventListener('input', ()=>{
+        if(soloNuumerosSinVerificador(run.value.trim())){
+            run.classList.remove('is-invalid')
+            run.classList.add('is-valid')
+        } else{
+            run.classList.add('is-invalid')
+            run.classList.remove('is-valid')
+        }
+    });
+}
