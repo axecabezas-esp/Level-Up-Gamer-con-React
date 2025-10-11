@@ -130,7 +130,7 @@ export const Products = () => {
         <div className="col-md-4">
           <div className="card p-4 h-100 text-center">
             <h3 className="text-verde">Carcassonne</h3>
-            <img src="..\public\img\Carcassonne.jpg" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+            <img src="..\public\img\carcassonne juego de mesa.jpg" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
             <p className="text-secondary">Construye ciudades y caminos medievales con tus amigos.</p>
             <button className="btn btn-success mt-auto">Ver Detalle</button>
           </div>
