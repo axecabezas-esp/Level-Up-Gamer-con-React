@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export const Navbar = () => {
   return (
     <>
@@ -9,13 +11,23 @@ export const Navbar = () => {
             </button>
         <div className="collapse navbar-collapse" id="mainNav">
             <ul className="navbar-nav ms-auto">
-            <li className="nav-item"><a className="nav-link" href="#carusel">Inicio</a></li>
-            <li className="nav-item"><a className="nav-link" href="#productos">Productos</a></li>
+            <li>
+            <NavLink to="/" className="nav-link">
+                  Inicio
+                </NavLink>
+            </li>
             <li className="nav-item"><a className="nav-link" href="#blog">Noticias</a></li>
             <li className="nav-item"><a className="nav-link" href="#contacto">Contacto</a></li>
-            <li className="nav-item"><a className="nav-link" href="login.html">Iniciar Sesion</a></li>
+            <li><NavLink to="/products" className="nav-link">
+                  Productos
+                </NavLink></li>
+            <li>
+            <NavLink to="/Login" className="nav-link">
+                  Iniciar sesión
+                </NavLink>
+            </li>
             <li className="nav-item" >
-              <a className="nav-link" href="" title="Carrito de compras">🛒</a>
+            <NavLink to="/cart" className="nav-link">🛒</NavLink>
             </li>
         </ul>
         </div>

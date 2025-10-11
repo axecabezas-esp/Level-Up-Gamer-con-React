@@ -65,7 +65,7 @@ export const Products = () => {
       <div className="row g-4 justify-content-center mb-5">
         <div className="col-md-4">
           <div className="card p-4 h-100 text-center">
-            <img src="..\public\img\mouse_gamer_logitech.webp" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+            <img src="..\public\img\mouse gamer logitech.webp" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
             <h3 className="text-verde">Mouse Logitech G502 HERO</h3>
             <p className="text-secondary">Sensor óptico HERO 25K con precisión y ajuste de peso.</p>
             <button className="btn btn-success mt-auto">Ver Detalle</button>
@@ -109,6 +109,7 @@ export const Products = () => {
         </div>
         <div className="col-md-4">
           <div className="card p-4 h-100 text-center">
+            <img src="..\public\img\PoleraLevelUpGamer.png" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
             <h3 className="text-verde">Polera Gamer "Level-Up"</h3>
             <p className="text-secondary">Personalízala con tu gamer tag o diseño favorito.</p>
             <button className="btn btn-success mt-auto">Ver Detalle</button>

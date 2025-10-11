@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export const Registro = () => {
     return (
       <>
@@ -48,7 +50,7 @@ export const Registro = () => {
                 <div className="text-center">
                     <button type="submit" className="btn btn-success fw-bold rounded-pill px-4">Crear cuenta</button>
                 </div>
-                <div className="mt-3"> <p>¿Ya tienes una cuenta? <a className="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="login.html">Inicia sesion</a></p></div>
+                <div className="mt-3"> <p>¿Ya tienes una cuenta? <NavLink to="/Login" className="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Sesión inicial</NavLink></p></div>
                 
                 </form>
             </div>
