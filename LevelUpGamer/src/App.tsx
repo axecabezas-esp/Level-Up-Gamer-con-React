@@ -1,14 +1,14 @@
 import { Footer } from "./components/Footer"
 import { Navbar } from "./components/Navbar"
 import { Home } from "./pages/Home"
-import { Login } from "./pages/Login"
+import { Registro } from "./pages/Registro"
 
 function App() {
 
   return (
     <>
     <Navbar />
-    <Login />
+    <Registro />
     <Footer />
     </>
   )
