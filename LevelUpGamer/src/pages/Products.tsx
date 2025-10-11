@@ -122,7 +122,7 @@ export const Products = () => {
         <div className="col-md-4">
           <div className="card p-4 h-100 text-center">
             <h3 className="text-verde">Catan</h3>
-            <img src="..\public\img\Catan.webp" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
+            <img src="..\public\img\catan.avif" className="card-img-top rounded mx-auto d-block" alt="ps5"/>
             <p className="text-secondary">Estrategia y comercio para dominar la isla.</p>
             <button className="btn btn-success mt-auto">Ver Detalle</button>
           </div>
