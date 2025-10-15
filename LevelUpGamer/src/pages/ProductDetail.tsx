@@ -60,12 +60,12 @@ export const ProductDetail = () => {
     </div>
 
 
-    <div className="row g-1 mt-1 mt-lg-5">
+    <div className="row g-1 mt-lg-5">
       <div className="col-12 col-lg-12">
-        <div className="card-2 border-0">
-          <div className="card-body">
-            <h3 className="h5">Descripción</h3>
-            <p>
+        <div className="card-2">
+          <div className="card-body ms-4" style={{minHeight: "15vh"}}>
+            <h3 className="mt-1">Descripción</h3>
+            <p className="mt-3">
               {product?.description}
             </p>
           </div>
