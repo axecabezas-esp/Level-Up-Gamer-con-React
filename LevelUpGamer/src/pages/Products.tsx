@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom"
+import { products } from "../data/products"
+
+
 export const Products = () => {
   return (
     <>
-<section className="bg-azul py-5">
+<section className="bg-azul py-5 ">
     <div className="container">
       <h2 className="text-center text-verde orbitron text-shadow mb-5">🕹️ Nuestros Productos</h2>
 
-      <h3 className="text-center text-info orbitron mb-4">🎮 Consolas</h3>
+      {/* <h3 className="text-center text-info orbitron mb-4">🎮 Consolas</h3>
       <div className="row g-4 justify-content-center mb-5">
         <div className="col-md-4">
             <div className="card p-4 text-center">
@@ -135,7 +139,43 @@ export const Products = () => {
             <button className="btn btn-success mt-auto">Ver Detalle</button>
           </div>
         </div>
-      </div>
+      </div> */}
+      <section className="row g-4">
+          {products.map((p) => (
+            <>
+              <div className="col-lg-4 col-md-6 col-12">
+                <article
+                  key={p.id}
+                  className="card h-100 bg-dark text-light border-secondary-subtle"
+                >
+                  <div className="ratio ratio-16x9">
+                    <img
+                      src={p.imageSrc}
+                      className="card-img-top w-100 h-100 object-fit-contain"
+                      alt="Producto"
+                    />
+                  </div>
+                  <div className="card-body">
+                    <span className="badge rounded-pill text-bg-secondary mb-2">
+                      {p.category}
+                    </span>
+                    <h3 className="h6 card-title">{p.title}</h3>
+                    <p className="card-text small">{p.description}</p>
+                  </div>
+                  <div className="card-footer d-flex align-items-center justify-content-between">
+                    <span className="fw-bold">${p.price}</span>
+                    <Link
+                      className="btn btn-outline-light btn-sm"
+                      to={`/products/${p.id}`}
+                    >
+                      Ver detalle
+                    </Link>
+                  </div>
+                </article>
+              </div>
+            </>
+          ))}
+        </section>
     </div>
   </section>
     </>
