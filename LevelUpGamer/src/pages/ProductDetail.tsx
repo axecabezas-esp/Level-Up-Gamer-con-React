@@ -1,10 +1,16 @@
 import { useParams } from "react-router-dom";
 import { products } from "../data/products";
+import { useCar } from "../contexts/CartContext";
 
 export const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const pid = Number(id);
   const product = products.find((p) => p.id === pid);
+
+  const {addToCar} = useCar();
+
+  if(!product) return (<><h2>Producto no encontrado</h2></>)
+
   return (
     <>
       <main className="container mt-5">
@@ -51,7 +57,7 @@ export const ProductDetail = () => {
             <span className="small text-secondary">Máximo 5 unidades.</span>
           </div>
 
-          <button className="btn btn-dark btn-lg w-50">
+          <button className="btn btn-dark btn-lg w-50" onClick={()=> addToCar(product)}>
             <i className="bi bi-cart-plus me-2"></i> Agregar al Carro
           </button>
         </div>

@@ -34,10 +34,10 @@ export const Products = () => {
                 ))}
               </select>
             <label htmlFor="minPrice" className="form-label mb-0">Mín</label>
-            <input id="minPrice" type="number" value={minPrice || ""} className="form-control form-control-sm" style={{width: 110}} onChange={(e)=> setMinPrice(Number(e.target.value))} />
+            <input id="minPrice" type="number" value={minPrice || ""} className="form-control form-control-sm" style={{width: 110}} onChange={(e)=> setMinPrice(Number(e.target.value))}/>
             <label htmlFor="maxPrice" className="form-label mb-0">Máx</label>
             <input id="maxPrice" type="number" value={maxPrice || "" } className="form-control form-control-sm" style={{width: 110}} onChange={(e)=> setMaxPrice(Number(e.target.value))}/>
-            <button className="btn btn-outline-secondary btn-sm" onClick={(e)=> {setMaxPrice(Number(0)); setMinPrice(Number(0)); setSelectedCategory("all");}}>Restablecer</button>
+            <button className="btn btn-outline-secondary btn-sm" onClick={(e)=> {setMaxPrice(Number(0)); setMinPrice(Number(0)); setSelectedCategory("all"); }}>Restablecer</button>
           </div>
       <section className="row g-4 mt-4">
           {filteredProducts.map((p) => (

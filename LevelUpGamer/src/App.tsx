@@ -7,6 +7,7 @@ import { Carrito } from "./pages/Carrito"
 import { ProductDetail } from "./pages/ProductDetail"
 import { Layout } from "./layout/Layout"
 
+
 function App() {
 
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route path="/products" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Registro />} />
-      <Route path="/cart" element={<Carrito />} />
+      <Route path="/carrito" element={<Carrito />} />
       <Route path="/products/:id" element={<ProductDetail />} />
       </Route>
     </Routes>

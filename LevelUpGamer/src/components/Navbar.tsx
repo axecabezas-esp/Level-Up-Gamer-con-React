@@ -1,6 +1,15 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import { useCar } from "../contexts/CartContext";
 
 export const Navbar = () => {
+
+  const {items} = useCar();
+  console.log('Items en Navbar:', items);
+  const totalItems = items.reduce(
+    (acumulador, producto) => acumulador + producto.qty, 0
+  );
+
+
   return (
     <>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow">
@@ -26,8 +35,20 @@ export const Navbar = () => {
                   Iniciar sesión
                 </NavLink>
             </li>
-            <li className="nav-item" >
-            <NavLink to="/cart" className="nav-link">🛒</NavLink>
+            <li className="nav-item " >
+            <Link
+                className="text-light fs-4 position-relative"
+                to="/carrito"
+                aria-label="Ver Carrito de Compras"
+              >
+                <i className="bi bi-cart-fill"></i>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary cart-badge-sm">
+                  {totalItems}
+                  <span className="visually-hidden">
+                    Productos en el carrito
+                  </span>
+                </span>
+              </Link>
             </li>
         </ul>
         </div>

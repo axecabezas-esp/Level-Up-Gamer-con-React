@@ -107,3 +107,9 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.cart-badge-sm {
+  /* Prueba cambiando estos valores */
+  padding: 0.35em 0.6em; /* Controla el espacio alrededor del número */
+  font-size: 0.7rem;
+}
