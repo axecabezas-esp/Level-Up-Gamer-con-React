@@ -51,10 +51,9 @@ export const ProductDetail = () => {
             <span className="small text-secondary">Cantidad</span>
             <div className="input-group" style={{width: "140px"}}>
               <button className="btn btn-outline-secondary" type="button"><i className="bi bi-dash"></i></button>
-              <input type="number" className="form-control text-center" value="1" min="1" max="5" />
+              <input type="number" className="form-control text-center" value="1" />
               <button className="btn btn-outline-secondary" type="button"><i className="bi bi-plus"></i></button>
             </div>
-            <span className="small text-secondary">Máximo 5 unidades.</span>
           </div>
 
           <button className="btn btn-dark btn-lg w-50" onClick={()=> addToCar(product)}>

@@ -4,7 +4,6 @@ import { useCar } from "../contexts/CartContext";
 export const Navbar = () => {
 
   const {items} = useCar();
-  console.log('Items en Navbar:', items);
   const totalItems = items.reduce(
     (acumulador, producto) => acumulador + producto.qty, 0
   );
