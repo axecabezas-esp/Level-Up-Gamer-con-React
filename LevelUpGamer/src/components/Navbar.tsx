@@ -24,16 +24,19 @@ export const Navbar = () => {
                   Inicio
                 </NavLink>
             </li>
-            <li className="nav-item"><a className="nav-link" href="#blog">Noticias</a></li>
-            <li className="nav-item"><a className="nav-link" href="#contacto">Contacto</a></li>
-            <li><NavLink to="/products" className="nav-link">
-                  Productos
-                </NavLink></li>
             <li>
             <NavLink to="/Login" className="nav-link">
                   Iniciar sesión
                 </NavLink>
             </li>
+            <li>
+            <NavLink to="/register" className="nav-link">
+                  Registrarse
+                </NavLink>
+            </li>
+            <li><NavLink to="/products" className="nav-link">
+                  Productos
+                </NavLink></li>
             <li className="nav-item " >
             <Link
                 className="text-light fs-4 position-relative"
