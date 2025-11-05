@@ -14,9 +14,11 @@ export type CartItem = Product & {qty: number}
 type CartContextType = {
     items: CartItem[]; //objeto que almacena todos los productos
     addToCar: (p: Product) => void; //añade al carro un item
+    removeOne: (id: number) => void;
     removeItem: (id: number) => void; // eliminar un item, disminuye la cantidad en 1
     removeAllItem: (id: number) => void; // elimina el producto del carro
     clearCart: ()=> void; //elimina todo el carro
+    formatCLP: (n: number) => string;
 };
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -37,10 +39,27 @@ export function CartProvider({children}: {children: ReactNode}){
                 return[...prev, {...p, qty: 1}];
             }
             else{
-                return prev.map((e)=> e.id === e.id ? {...e, qty: e.qty + 1} : e);
+                return prev.map((e)=> e.id === p.id ? {...e, qty: e.qty + 1} : e);
             }
         });
     }
+
+    const formatCLP = (n: number) =>
+        new Intl.NumberFormat("es-CL", {
+          style: "currency",
+          currency: "CLP",
+          maximumFractionDigits: 0,
+        }).format(n);
+
+    const removeOne = (id: number) => {
+        setItems((prev) => {
+          const it = prev.find((x) => x.id === id);
+          if (!it) return prev;
+          if (it.qty === 1) return prev.filter((x) => x.id !== id);
+          return prev.map((x) => (x.id === id ? { ...x, qty: x.qty - 1 } : x));
+        });
+      };
+    
 
     // ahora debemos disminuir en 1 el carrito
     const removeItem = (id: number) =>{
@@ -75,7 +94,7 @@ export function CartProvider({children}: {children: ReactNode}){
 
     return(
         <CartContext.Provider 
-            value={{items, addToCar, removeItem, removeAllItem, clearCart}}
+            value={{items, addToCar,removeOne, removeItem, removeAllItem, clearCart,formatCLP}}
         >
             {children}
         </CartContext.Provider>

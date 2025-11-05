@@ -55,7 +55,7 @@ export const Home = () => {
             </p>
           
           </div>
-          <img src="img/Esports.png" alt="Noticia 1" className="img-fluid rounded shadow-lg"/>
+          <img src="img/eSports.jpeg" alt="Noticia 1" className="img-fluid w-25 rounded shadow-lg"/>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ export const Home = () => {
             </p>
             
           </div>
-          <img src="img/juegos_indie.png" alt="Noticia 2" className="img-fluid rounded shadow-lg"/>
+          <img src="img/juegos_indie.jpeg" alt="Noticia 2" className="img-fluid w-25 rounded shadow-lg"/>
         </div>
       </div>
     </div>

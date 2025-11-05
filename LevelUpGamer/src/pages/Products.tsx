@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
 import { products } from "../data/products"
 import { useState } from "react";
+import { useCar } from "../contexts/CartContext";
 
 
 export const Products = () => {
+  const { addToCar, formatCLP } = useCar();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
@@ -62,13 +64,21 @@ export const Products = () => {
                     <p className="card-text small">{p.description}</p>
                   </div>
                   <div className="card-footer d-flex align-items-center justify-content-between">
-                    <span className="fw-bold">${p.price}</span>
-                    <Link
-                      className="btn btn-outline-light btn-sm"
-                      to={`/products/${p.id}`}
-                    >
-                      Ver detalle
-                    </Link>
+                    <span className="fw-bold">{formatCLP(p.price)}</span>
+                    <div className="d-flex gap-2">
+                      <button
+                        className="btn btn-success btn-sm"
+                        onClick={() => addToCar(p)}
+                      >
+                        Agregar
+                      </button>
+                      <Link
+                        className="btn btn-outline-light btn-sm"
+                        to={`/products/${p.id}`}
+                      >
+                        Ver detalle
+                      </Link>
+                    </div>
                   </div>
                 </article>
               </div>
