@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { Home } from "./pages/Home"
-import { Registro } from "./pages/Registro"
+import  Registro  from "./pages/Registro"
 import { Products } from "./pages/Products"
 import { Login } from "./pages/Login"
 import { Carrito } from "./pages/Carrito"
