@@ -1,13 +1,17 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import { useCar } from "../contexts/CartContext";
 
 export const Navbar = () => {
-
+  const navigate = useNavigate();
   const {items} = useCar();
   const totalItems = items.reduce(
     (acumulador, producto) => acumulador + producto.qty, 0
   );
-
+  const usuario = JSON.parse(localStorage.getItem("usuario") || "null");
+  const cerrarSesion = () => {
+    localStorage.removeItem("usuario");
+    navigate("/Login"); // Redirige al login al salir
+  };
 
   return (
     <>
@@ -24,16 +28,39 @@ export const Navbar = () => {
                   Inicio
                 </NavLink>
             </li>
-            <li>
-            <NavLink to="/Login" className="nav-link">
-                  Iniciar sesión
-                </NavLink>
-            </li>
-            <li>
-            <NavLink to="/register" className="nav-link">
-                  Registrarse
-                </NavLink>
-            </li>
+            {usuario ? (
+                // SI EL USUARIO ESTÁ LOGUEADO:
+                <>
+                  <li className="nav-item">
+                    <span className="nav-link text-warning">
+                      Hola, {usuario.usuario.nombre}
+                    </span>
+                  </li>
+                  <li className="nav-item">
+                    <button 
+                        className="nav-link btn btn-link" 
+                        onClick={cerrarSesion}
+                        style={{ textDecoration: 'none' }}
+                    >
+                      Cerrar Sesión
+                    </button>
+                  </li>
+                </>
+              ) : (
+                // SI NO HAY USUARIO (Muestra Login y Registro):
+                <>
+                  <li>
+                    <Link to="/Login" className="nav-link">
+                      Iniciar sesión
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register" className="nav-link">
+                      Registrarse
+                    </Link>
+                  </li>
+                </>
+              )}
             <li><NavLink to="/products" className="nav-link">
                   Productos
                 </NavLink></li>

@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
-import { products } from "../data/products"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCar } from "../contexts/CartContext";
+import { getProducts } from "../api/products";
+import type { Product } from "../interfaces/product";
 
 
 export const Products = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  useEffect(() => {
+    getProducts().then(setProducts).catch(console.error);
+  }, []);
   const { addToCar, formatCLP } = useCar();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [minPrice, setMinPrice] = useState(0);
