@@ -6,6 +6,9 @@ import { Login } from "./pages/Login"
 import { Carrito } from "./pages/Carrito"
 import { ProductDetail } from "./pages/ProductDetail"
 import { Layout } from "./layout/Layout"
+import Forbidden from "./pages/Forbidden"
+import AdminRoute from "./components/AdminRoute"
+import Admin from "./pages/Admin"
 
 
 function App() {
@@ -13,6 +16,8 @@ function App() {
   return (
     <>
     <Routes>
+      <Route path="/403" element={<Forbidden />} />
+      <Route path="admin" element={<AdminRoute><Admin /></AdminRoute>} />
       <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />

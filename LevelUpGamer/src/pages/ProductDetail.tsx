@@ -1,8 +1,14 @@
 import { useParams } from "react-router-dom";
-import { products } from "../data/products";
 import { useCar } from "../contexts/CartContext";
+import { useEffect, useState } from "react";
+import { getProducts } from "../api/products";
+import type { Product } from "../interfaces/product";
 
 export const ProductDetail = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  useEffect(() => {
+    getProducts().then(setProducts).catch(console.error);
+  }, []);
   const { id } = useParams<{ id: string }>();
   const pid = Number(id);
   const product = products.find((p) => p.id === pid);
