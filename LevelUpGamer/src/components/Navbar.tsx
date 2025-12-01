@@ -1,8 +1,10 @@
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import { useCar } from "../contexts/CartContext";
+import { getUserRole } from "../util/Auth";
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const role = getUserRole();
   const {items} = useCar();
   const totalItems = items.reduce(
     (acumulador, producto) => acumulador + producto.qty, 0
@@ -10,6 +12,7 @@ export const Navbar = () => {
   const usuario = JSON.parse(localStorage.getItem("usuario") || "null");
   const cerrarSesion = () => {
     localStorage.removeItem("usuario");
+    localStorage.removeItem("token");
     navigate("/Login"); // Redirige al login al salir
   };
 
@@ -79,6 +82,11 @@ export const Navbar = () => {
                 </span>
               </Link>
             </li>
+            {role === "Admin" ? (<li>
+                    <Link to="/adminUser" className="nav-link">
+                      Panel de Administracion
+                    </Link>
+                  </li>) : (null)}
         </ul>
         </div>
         </div>

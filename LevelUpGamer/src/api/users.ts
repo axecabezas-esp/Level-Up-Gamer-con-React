@@ -5,3 +5,12 @@ export const getUsers = async (): Promise<User[]> => {
   const res = await api.get<User[]>("/usuarios");
   return res.data;
 };
+
+export const deleteUser = async (id: number): Promise<void> => {
+  await api.delete(`/usuarios/${id}`);
+};
+
+export const addUser = async (usuario: User): Promise<User> => {
+  const res = await api.post<User>("/usuarios", usuario); 
+  return res.data;
+};
