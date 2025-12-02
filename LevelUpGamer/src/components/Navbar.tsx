@@ -19,7 +19,7 @@ export const Navbar = () => {
   return (
     <>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow">
-            <div className="container">
+            <div className="container-fluid px-4">
             <a className="navbar-brand fw-bold orbitron text-verde" href="#inicio">LEVEL-UP GAMER</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span className="navbar-toggler-icon"></span>

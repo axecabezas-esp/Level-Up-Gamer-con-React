@@ -16,7 +16,7 @@ export const Sidebar = () => {
             <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 text-white">
                 <a href="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     {/* Usamos tu clase 'orbitron' y 'text-verde' para el logo */}
-                    <span className="fs-4 d-none d-sm-inline orbitron text-verde">Company ⚡</span>
+                    <span className="fs-4 d-none d-sm-inline orbitron text-verde">Level Up Gamer⚡</span>
                 </a>
                 <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
                         <li className="nav-item w-100">
@@ -25,7 +25,7 @@ export const Sidebar = () => {
                         </NavLink>
                         </li>
                         <li className="nav-item w-100">
-                        <NavLink to="/adminAdd" className="nav-link text-white">
+                        <NavLink to="/adminAddUser" className="nav-link text-white">
                             Añadir Usuario
                         </NavLink>
                         </li>

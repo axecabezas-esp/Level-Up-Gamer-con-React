@@ -2,65 +2,70 @@ import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { useState } from "react";
 import { addUser } from "../api/users";
-import { api } from "../api/client";
+import { Navbar } from "../components/Navbar";
 
-function AdminAdd(){
+function AdminAddUser(){
     const navigate = useNavigate();
-  const [form, setForm] = useState({
-    id: 0,
-    nombre: "",
-    apellido: "",
-    correo: "",
-    password: "",
-    fechaNacimiento: "",
-    tipoUsuario: ""
-  });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    const [form, setForm] = useState({
+        id: 0,
+        nombre: "",
+        apellido: "",
+        correo: "",
+        password: "",
+        fechaNacimiento: "",
+        tipoUsuario: ""
+    });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
 
-    try {
-        await addUser(form)
-      alert("Registro exitoso!");
-      navigate("/"); // redirige al home
-    } catch (error) {
-      alert("Error al registrar usuario");
-      console.error("Error al agregar",error)
-    }
-  };
+    const handleSubmit = async (e: React.FormEvent) => {
+        // ... tu lógica de submit ...
+        e.preventDefault();
+        try {
+            await addUser(form); // Asegúrate de que tu API acepte el objeto sin ID si es autogenerado
+            alert("Registro exitoso!");
+            navigate("/admin"); // Tip: Mejor redirigir al admin para ver el nuevo usuario
+        } catch (error) {
+            console.error(error);
+            alert("Error al registrar");
+        }
+    };
 
-  return (
-    // Contenedor principal con fondo oscuro transparente
-    <>
-    <div className="container-fluid bg-black-transparent min-vh-100 text-white">
-      <div className="row flex-nowrap">
+    return (
+        // 1. Contenedor Principal: Flex Vertical (Columna) para poner Navbar arriba y contenido abajo
+        <div className="d-flex flex-column min-vh-100 bg-black-transparent text-white">
+            
+            {/* 2. Navbar: Ocupa todo el ancho arriba */}
+            <div className="sticky-top" style={{ zIndex: 1020 }}>
+                <Navbar />
+            </div>
 
-        <Sidebar />
+            {/* 3. Contenedor del Cuerpo (Sidebar + Contenido) */}
+            <div className="container-fluid flex-grow-1">
+                <div className="row flex-nowrap h-100">
+                    
+                    {/* Sidebar (Izquierda) */}
+                    <Sidebar />
+                    
+                    {/* Contenido Principal (Derecha) */}
+                    <div className="col py-4 container">
+                        
+                        <h1 className="h2 orbitron text-verde mb-4 pb-2 border-bottom border-secondary">
+                            NUEVO USUARIO
+                        </h1>
 
-        {/* === CONTENIDO PRINCIPAL DEL FORMULARIO === */}
-        <div className="col py-4 container-md">
-
-            {/* Título Principal */}
-            <h1 className="h2 orbitron text-verde mb-4 pb-2 border-bottom border-secondary">
-                NUEVO USUARIO
-            </h1>
-
-            <div className="row justify-content-center">
-                <div className="col-lg-8">
-                    {/* Tarjeta del Formulario */}
-                    <div className="card-2 bg-dark border-secondary shadow-lg">
-                        {/* Encabezado gris similar a la imagen de referencia */}
-                        <div className="card-header bg-secondary bg-opacity-25 text-white orbitron small py-3">
-                            Registro de usuario
-                        </div>
-                        <div className="card-body p-4">
-
-                            <form onSubmit={handleSubmit}>
-                                {/* NOMBRE COMPLETO */}
-                                <div className="mb-4">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-8">
+                                <div className="card-2 bg-dark border-secondary shadow-lg">
+                                    <div className="card-header bg-secondary bg-opacity-25 text-white text-center orbitron small py-3">
+                                        Registro de usuario
+                                    </div>
+                                    <div className="card-body p-4">
+                                        
+                                        <form onSubmit={handleSubmit}>
+                                        <div className="mb-4">
                                     <label htmlFor="nombre" className="form-label text-info small orbitron">NOMBRE </label>
                                     <input type="text" name="nombre" className="form-control bg-black text-white border-secondary p-2" id="nombre" placeholder="Ingrese nombre completo" onChange={handleChange} />
                                 </div>
@@ -120,18 +125,18 @@ function AdminAdd(){
                                         REGISTRAR
                                     </button>
                                 </div>
+                                        </form>
 
-                            </form>
-                        </div> {/* Fin Card Body */}
-                    </div> {/* Fin Card */}
-                </div>
-            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div> {/* Fin Columna Contenido */}
+                </div> {/* Fin Row */}
+            </div> {/* Fin Container Fluid */}
         </div>
-      </div>
-    </div>
-    </>
-  );
+    );
 };
 
-export default AdminAdd;
+export default AdminAddUser;
