@@ -15,6 +15,9 @@ import AdminAddProduct from "./pages/AdminAddProduct"
 import AdminAddUser from "./pages/AdminAddUser"
 import AdminUpdateUser from "./pages/AdminUpdateUser"
 import AdminUpdateProduct from "./pages/AdminUpdateProduct"
+import { AdminNews } from "./pages/AdminNews"
+import { AdminAddNews } from "./pages/AdminAddNews"
+import { AdminUpdateNews } from "./pages/AdminUpdateNews"
 
 
 
@@ -31,6 +34,9 @@ function App() {
       <Route path="/adminProduct" element={<AdminRoute><AdminProducts /></AdminRoute> }/>
       <Route path="/adminAddProduct" element={<AdminRoute><AdminAddProduct /></AdminRoute> }/>
       <Route path="/adminUpdateProduct/:id" element={<AdminRoute><AdminUpdateProduct /></AdminRoute> }/>
+      <Route path="/adminNews" element={<AdminRoute><AdminNews /></AdminRoute> }/>
+      <Route path="/adminAddNews" element={<AdminRoute><AdminAddNews /></AdminRoute> }/>
+      <Route path="/adminUpdateNews/:id" element={<AdminRoute><AdminUpdateNews /></AdminRoute> }/>
       <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />

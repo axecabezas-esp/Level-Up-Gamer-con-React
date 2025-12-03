@@ -9,10 +9,12 @@ function AdminUpdateUser() {
     const { id } = useParams(); // Capturamos el ID de la URL (ej: /admin/update/5)
 
     const [form, setForm] = useState({
+        rut: 0,
         nombre: "",
         apellido: "",
         correo: "",
-        password: "", // Ojo: Normalmente no se actualiza la password aquí a menos que el usuario escriba una nueva
+        password: "", 
+        comuna: "", 
         fechaNacimiento: "",
         tipoUsuario: ""
     });
@@ -123,6 +125,16 @@ function AdminUpdateUser() {
                                                     className="form-control bg-black text-white border-secondary p-2" 
                                                     value={form.fechaNacimiento} onChange={handleChange} required 
                                                 />
+                                            </div>
+
+                                            <div className="mb-4">
+                                                <label htmlFor="comuna" className="form-label text-info small orbitron">COMUNA</label>
+                                                <select className="form-select bg-black text-white border-secondary p-2" id="comuna">
+                                                    <option selected>Seleccione su comuna...</option>
+                                                    <option value="1">Santiago</option>
+                                                    <option value="2">Puente Alto</option>
+                                                    <option value="3">Providencia</option>
+                                                </select>
                                             </div>
 
                                             <div className="mb-4">

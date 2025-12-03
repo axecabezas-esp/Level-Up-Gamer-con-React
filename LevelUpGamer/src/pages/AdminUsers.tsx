@@ -60,9 +60,11 @@ export const AdminUsers = () => {
                         <table className="table table-dark table-striped table-hover mb-0 align-middle">
                             <thead className="bg-secondary bg-opacity-25 text-verde orbitron small">
                                 <tr>
+                                    <th scope="col" className="ps-4 py-3 text-info">Rut</th>
                                     <th scope="col" className="ps-4 py-3 text-info">Nombre</th>
                                     <th scope="col" className="py-3 text-info">Apellido</th>
                                     <th scope="col" className="py-3 text-secondary">Correo</th>
+                                    <th scope="col" className="py-3 text-secondary">Comuna</th>
                                     <th scope="col" className="py-3 text-success">Fecha de Nacimiento</th>
                                     <th scope="col" className="pe-4 py-3 text-center">Acciones</th>
                                 </tr>
@@ -70,9 +72,11 @@ export const AdminUsers = () => {
                             <tbody className="border-top-0">
                                 {users.map ((user) => (
                                     <tr key={user.id}>
+                                        <td className="ps-4 text-info">{user.rut}</td>
                                         <td className="ps-4 text-info">{user.nombre}</td>
                                         <td className="fw-bold text-info ">{user.apellido}</td>
                                         <td className="text-secondary">{user.correo}</td>
+                                        <td className="text-secondary">{user.comuna}</td>
                                         <td className="text-success ">{user.fechaNacimiento}</td>
                                         <td className="text-center">
                                         <Link 

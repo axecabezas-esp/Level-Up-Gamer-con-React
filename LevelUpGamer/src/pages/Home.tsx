@@ -1,4 +1,12 @@
+import { useEffect, useState } from "react";
+import type { News } from "../interfaces/News";
+import { getNews } from "../api/News";
+
 export const Home = () => {
+  const [news, setNews] = useState<News[]>([]);
+  useEffect(() => {
+    getNews().then(setNews).catch(console.error);
+  }, []);
   return (
     <>
 
@@ -44,34 +52,18 @@ export const Home = () => {
 
   <section id="blog" className="container">
     <div className="row justify-content-center g-4">
-      <div className="col-lg-10">
+      {news.map((n)=>(
+        <div className="col-lg-10">
         <div className="d-flex flex-column flex-md-row align-items-center gap-4 bg-dark rounded p-4 shadow noticia-hover">
           <div className="flex-fill">
-            <h3 className="text-verde orbitron">LevelUpGamer inaugura su primera competencia online de eSports</h3>
-            <p className="text-light small">LevelUpGamer anunció con orgullo el lanzamiento de su primer torneo online, en el que jugadores de toda 
-              la región podrán enfrentarse en títulos como Valorant y League of Legends. La competencia ofrecerá premios sorpresa y lo más 
-              importante: la posibilidad de que los ganadores sean parte del equipo oficial de LevelUpGamer.
-              Según los organizadores, el objetivo es “dar visibilidad al talento local y fortalecer la comunidad gamer que hemos construido en estos meses”.
-            </p>
+            <h3 className="text-verde orbitron">{n.titulo}</h3>
+            <p className="text-light small">{n.descripcion}</p>
           
           </div>
-          <img src="img/eSports.jpeg" alt="Noticia 1" className="img-fluid w-25 rounded shadow-lg"/>
+          <img src={n.imagen} alt="Noticia 1" className="img-fluid w-25 rounded shadow-lg"/>
         </div>
       </div>
-
-      <div className="col-lg-10">
-        <div className="d-flex flex-column flex-md-row align-items-center gap-4 bg-dark rounded p-4 shadow noticia-hover">
-          <div className="flex-fill">
-            <h3 className="text-verde orbitron">Nueva alianza: LevelUpGamer se une a desarrolladores indie</h3>
-            <p className="text-light small">En un esfuerzo por apoyar a los creadores independientes, LevelUpGamer anunció una alianza estratégica 
-              con estudios emergentes de videojuegos. Gracias a esta iniciativa, los usuarios podrán probar demos exclusivas de juegos indie directamente desde la plataforma.
-              “Queremos ser un puente entre los jugadores y los desarrolladores que están creando experiencias frescas y originales”, explicó el equipo en su comunicado.
-            </p>
-            
-          </div>
-          <img src="img/juegos_indie.jpeg" alt="Noticia 2" className="img-fluid w-25 rounded shadow-lg"/>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 

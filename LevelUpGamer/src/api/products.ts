@@ -10,8 +10,8 @@ export const deleteProduct = async (id: number): Promise<void> => {
   await api.delete(`/productos/${id}`);
 };
 
-export const addProduct = async (usuario: Product): Promise<Product> => {
-  const res = await api.post<Product>("/productos", usuario); 
+export const addProduct = async (producto: Product): Promise<Product> => {
+  const res = await api.post<Product>("/productos", producto); 
   return res.data;
 };
 
