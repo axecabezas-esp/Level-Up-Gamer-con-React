@@ -42,7 +42,7 @@ function AdminUpdateProduct() {
         try {
             await updateProduct(id, form);
             alert("Producto actualizado correctamente!");
-            navigate("/admin/products"); // Volver a la lista de productos
+            navigate("/adminProduct"); // Volver a la lista de productos
         } catch (error) {
             console.error("Error al actualizar", error);
             alert("Error al actualizar el producto.");

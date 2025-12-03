@@ -34,7 +34,7 @@ export const AdminNews = () => {
             
             <div className="d-flex justify-content-between align-items-center mb-3 border-bottom border-secondary pb-2">
                 <h1 className="h2 orbitron text-verde">Gestión de Noticias</h1>
-                <Link to="/admin/addNoticia" className="btn btn-sm btn-outline-success text-verde border-verde fw-bold">
+                <Link to="/adminAddNews" className="btn btn-sm btn-outline-success text-verde border-verde fw-bold">
                     + NUEVA NOTICIA
                 </Link>
             </div>
