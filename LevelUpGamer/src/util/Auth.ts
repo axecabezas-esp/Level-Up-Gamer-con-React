@@ -7,7 +7,7 @@ export const getUserRole = () => {
 
   try {
     const decoded: any = jwtDecode(token);
-    const currentTime = Date.now() / 3600000;
+    const currentTime = Date.now() / 10000;
     const navigate = useNavigate();
     if (decoded.exp < currentTime) {
       console.log("Token expirado. Cerrando sesión...");

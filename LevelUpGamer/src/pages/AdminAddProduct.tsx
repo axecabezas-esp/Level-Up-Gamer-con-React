@@ -1,11 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
-import { useState } from "react";
-import { addProduct } from "../api/products";
+import { useEffect, useState } from "react";
+import { addProduct, getProducts } from "../api/products";
 import { Navbar } from "../components/Navbar";
+import type { Product } from "../interfaces/product";
 
 function AdminAddProduct(){
     const navigate = useNavigate();
+    const [products, setProducts] = useState<Product[]>([]);
+    useEffect(() => {
+      getProducts().then(setProducts).catch(console.error);
+    }, []);
+    // ✅ Código corregido para obtener un array de categorías únicas:
+    const uniqueCategories = Array.from(new Set(products.map((p) => p.category)));
     
     // Estado inicial limpio para un PRODUCTO
     const [form, setForm] = useState({
@@ -17,7 +24,7 @@ function AdminAddProduct(){
         imageSrc: ""
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
@@ -97,15 +104,19 @@ function AdminAddProduct(){
                                             {/* CATEGORIA */}
                                             <div className="mb-4">
                                                 <label htmlFor="category" className="form-label text-info small orbitron">CATEGORÍA</label>
-                                                <input 
-                                                    type="text" 
-                                                    name="category" 
-                                                    className="form-control bg-black text-white border-secondary p-2" 
-                                                    id="category" 
-                                                    placeholder="Ej: Consolas, Periféricos..." 
-                                                    required
-                                                    onChange={handleChange}
-                                                />
+                                                <select 
+                                                name="category" id="category" 
+                                                className="form-select bg-black text-white border-secondary p-2"
+                                                onChange={handleChange} required
+                                                value={form.category}
+                                                >
+                                                <option value="">Seleccione la categoria...</option>
+                                                {uniqueCategories.map((nombre) => (
+                                                    <option >
+                                                        {nombre}
+                                                    </option>
+                                                ))}
+                                            </select>
                                             </div>
 
                                             {/* PRECIO (Type Number) */}
