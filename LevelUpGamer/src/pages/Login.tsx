@@ -20,6 +20,8 @@ export const Login = () => {
       const response = await api.post("/usuarios/login", form);
 
       localStorage.setItem("token", response.data.token);
+      navigate("/");
+      window.location.href = "/";
 
       const usuario = response.data;
       localStorage.setItem("usuario", JSON.stringify(usuario));

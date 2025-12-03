@@ -26,7 +26,7 @@ function AdminAddUser(){
         try {
             await addUser(form); // Asegúrate de que tu API acepte el objeto sin ID si es autogenerado
             alert("Registro exitoso!");
-            navigate("/admin"); // Tip: Mejor redirigir al admin para ver el nuevo usuario
+            navigate("/adminAddUser"); // Tip: Mejor redirigir al admin para ver el nuevo usuario
         } catch (error) {
             console.error(error);
             alert("Error al registrar");

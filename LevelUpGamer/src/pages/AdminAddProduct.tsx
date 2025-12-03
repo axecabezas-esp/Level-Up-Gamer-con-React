@@ -26,7 +26,7 @@ function AdminAddProduct(){
         try {
             await addProduct(form);
             alert("Producto registrado exitosamente!");
-            navigate("/admin/products"); // Redirige a la lista de productos (ajusta la ruta si es distinta)
+            navigate("/adminProduct"); // Redirige a la lista de productos (ajusta la ruta si es distinta)
         } catch (error) {
             console.error("Error al agregar producto:", error);
             alert("Error al registrar el producto.");

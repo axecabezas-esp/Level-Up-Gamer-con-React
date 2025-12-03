@@ -14,6 +14,7 @@ export const Navbar = () => {
     localStorage.removeItem("usuario");
     localStorage.removeItem("token");
     navigate("/Login"); // Redirige al login al salir
+      window.location.href = "/Login";
   };
 
   return (

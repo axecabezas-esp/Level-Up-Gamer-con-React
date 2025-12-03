@@ -3,7 +3,7 @@ import { deleteUser, getUsers } from "../api/users";
 import type { User } from "../interfaces/User";
 import { Sidebar } from "../components/Sidebar";
 import { Navbar } from "../components/Navbar";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const AdminUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -60,30 +60,35 @@ export const AdminUsers = () => {
                         <table className="table table-dark table-striped table-hover mb-0 align-middle">
                             <thead className="bg-secondary bg-opacity-25 text-verde orbitron small">
                                 <tr>
-                                    <th scope="col" className="ps-4 py-3">Nombre</th>
-                                    <th scope="col" className="py-3">Apellido</th>
-                                    <th scope="col" className="py-3">Correo</th>
-                                    <th scope="col" className="py-3">Fecha de Nacimiento</th>
-                                    <th scope="col" className="pe-4 py-3 text-end">Contraseña</th>
+                                    <th scope="col" className="ps-4 py-3 text-info">Nombre</th>
+                                    <th scope="col" className="py-3 text-info">Apellido</th>
+                                    <th scope="col" className="py-3 text-secondary">Correo</th>
+                                    <th scope="col" className="py-3 text-success">Fecha de Nacimiento</th>
                                     <th scope="col" className="pe-4 py-3 text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody className="border-top-0">
                                 {users.map ((user) => (
                                     <tr key={user.id}>
-                                        <td className="ps-4">{user.nombre}</td>
-                                        <td className="fw-bold ">{user.apellido}</td>
-                                        <td>{user.correo}</td>
-                                        <td>{user.fechaNacimiento}</td>
-                                        <td >{user.password}</td>
+                                        <td className="ps-4 text-info">{user.nombre}</td>
+                                        <td className="fw-bold text-info ">{user.apellido}</td>
+                                        <td className="text-secondary">{user.correo}</td>
+                                        <td className="text-success ">{user.fechaNacimiento}</td>
                                         <td className="text-center">
+                                        <Link 
+                                            to={`/adminUpdateUser/${user.id}`} 
+                                            className="btn btn-sm btn-outline-primary border-0" 
+                                            title="Editar"
+                                        >
+                                            Editar ✏️
+                                        </Link>
                                             <button 
                                                 type="button" 
                                                 className="btn btn-sm btn-outline-danger border-0" 
                                                 title="Eliminar"
                                                 onClick={() => handleDelete(user.id, user.nombre)}
                                             >
-                                                🗑️
+                                                Eliminar 🗑️
                                             </button>
                                         </td>
                                     </tr>

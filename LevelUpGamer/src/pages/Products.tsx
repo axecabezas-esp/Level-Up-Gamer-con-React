@@ -59,6 +59,7 @@ export const Products = () => {
                       src={p.imageSrc}
                       className="card-img-top w-100 h-100 object-fit-contain"
                       alt="Producto"
+                      referrerPolicy="no-referrer"
                     />
                   </div>
                   <div className="card-body">

@@ -13,6 +13,8 @@ import { AdminUsers } from "./pages/AdminUsers"
 import { AdminProducts } from "./pages/AdminProducts"
 import AdminAddProduct from "./pages/AdminAddProduct"
 import AdminAddUser from "./pages/AdminAddUser"
+import AdminUpdateUser from "./pages/AdminUpdateUser"
+import AdminUpdateProduct from "./pages/AdminUpdateProduct"
 
 
 
@@ -25,8 +27,10 @@ function App() {
       <Route path="admin" element={<AdminRoute><Admin /></AdminRoute>} />
       <Route path="/adminUser" element={<AdminRoute><AdminUsers /></AdminRoute> }/>
       <Route path="/adminAddUser" element={<AdminRoute><AdminAddUser /></AdminRoute> }/>
+      <Route path="/adminUpdateUser/:id" element={<AdminRoute><AdminUpdateUser /></AdminRoute> }/>
       <Route path="/adminProduct" element={<AdminRoute><AdminProducts /></AdminRoute> }/>
       <Route path="/adminAddProduct" element={<AdminRoute><AdminAddProduct /></AdminRoute> }/>
+      <Route path="/adminUpdateProduct/:id" element={<AdminRoute><AdminUpdateProduct /></AdminRoute> }/>
       <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />

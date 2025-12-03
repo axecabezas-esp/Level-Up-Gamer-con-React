@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Sidebar } from "../components/Sidebar";
 import { Navbar } from "../components/Navbar";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { deleteProduct, getProducts } from "../api/products";
 import type { Product } from "../interfaces/product";
 
@@ -70,20 +70,20 @@ export const AdminProducts = () => {
                             <thead className="bg-secondary bg-opacity-25 text-verde orbitron small">
                                 <tr>
                                     {/* Encabezados corregidos para coincidir con los datos */}
-                                    <th scope="col" className="ps-4 py-3 text-white">Nombre</th>
+                                    <th scope="col" className="ps-4 py-3 text-secondary">Nombre</th>
                                     <th scope="col" className="py-3 text-info">Categoría</th>
-                                    <th scope="col" className="py-3">Descripción</th>
+                                    <th scope="col" className="py-3 text-secondary">Descripción</th>
                                     <th scope="col" className="py-3 text-success">Precio</th>
                                     <th scope="col" className="py-3 text-secondary">Imagen (URL)</th>
-                                    <th scope="col" className="pe-4 py-3 text-center text-danger">Acciones</th>
+                                    <th scope="col" className="pe-4 py-3 text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody className="border-top-0">
                                 {products.map ((product) => ( // Usamos 'product' singular
                                     <tr key={product.id}>
-                                        <td className="ps-4 fw-bold text-white">{product.title}</td>
+                                        <td className="ps-4 fw-bold text-secondary">{product.title}</td>
                                         <td className="text-info">{product.category}</td>
-                                        <td className="small text-truncate" style={{maxWidth: '200px'}} title={product.description}>
+                                        <td className="small text-secondary" style={{maxWidth: '200px'}} title={product.description}>
                                             {product.description}
                                         </td>
                                         <td className="fw-bold text-success">${product.price}</td>
@@ -93,6 +93,13 @@ export const AdminProducts = () => {
                                         
                                         {/* Botón de Eliminar (Ahora dentro de un TD) */}
                                         <td className="text-center">
+                                        <Link 
+                                            to={`/adminUpdateProduct/${product.id}`} 
+                                            className="btn btn-sm btn-outline-primary border-0" 
+                                            title="Editar"
+                                        >
+                                            Editar ✏️
+                                        </Link>
                                             <button 
                                                 type="button" 
                                                 className="btn btn-sm btn-outline-danger border-0" 
